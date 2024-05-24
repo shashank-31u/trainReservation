@@ -1,0 +1,615 @@
+{
+	"info": {
+		"_postman_id": "5e92fb8f-9a19-4f9a-8f58-b5f2c0dcea33",
+		"name": "Railway Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19565990"
+	},
+	"item": [
+		{
+			"name": "Bank Microservice",
+			"item": [
+				{
+					"name": "Get Balance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8005/api/bank/getBalance?bankAccountNumber=121323",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"api",
+								"bank",
+								"getBalance"
+							],
+							"query": [
+								{
+									"key": "bankAccountNumber",
+									"value": "121323"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Debit Balance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8005/api/bank/amountDebit?bankAccountNumber=000000000002&debitBalance=9000&creditCardNumber=1234-5678-8888-1234&cvv=981",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"api",
+								"bank",
+								"amountDebit"
+							],
+							"query": [
+								{
+									"key": "bankAccountNumber",
+									"value": "000000000002"
+								},
+								{
+									"key": "debitBalance",
+									"value": "9000"
+								},
+								{
+									"key": "creditCardNumber",
+									"value": "1234-5678-8888-1234"
+								},
+								{
+									"key": "cvv",
+									"value": "981"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Money",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8005/api/bank/addMoney?bankAccountNumber=000000000002&creditBalance=1000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"api",
+								"bank",
+								"addMoney"
+							],
+							"query": [
+								{
+									"key": "bankAccountNumber",
+									"value": "000000000002"
+								},
+								{
+									"key": "creditBalance",
+									"value": "1000"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User By Bank Account Number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8005/api/bank/getUserByBankAccountNumber?bankAccountNumber=000000000002",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"api",
+								"bank",
+								"getUserByBankAccountNumber"
+							],
+							"query": [
+								{
+									"key": "bankAccountNumber",
+									"value": "000000000002"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User and Bank Details",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Ayush Agarwal\",\r\n    \"age\": \"23\",\r\n    \"mobile\": \"7000061030\",\r\n    \"email\": \"ayush.agrawal@gmail.com\",\r\n    \"dateOfBirth\": \"2000-06-27\",\r\n    \"roles\": [],\r\n    \"bankName\": \"ICICI Bank\",\r\n    \"creditCardNumber\": \"1234-1111-2222-3333\",\r\n    \"expiryDate\": \"2030-12-12\",\r\n    \"deposit\": \"50000\",\r\n    \"accountType\": \"Current\",\r\n    \"cvv\":\"111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8005/api/bank/updateUserAndBankAccount?email=ayush.agrawal@gmail.com&mobile=7000061030",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"api",
+								"bank",
+								"updateUserAndBankAccount"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "ayush.agrawal@gmail.com"
+								},
+								{
+									"key": "mobile",
+									"value": "7000061030"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User and Bank Details",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Ayush Agarwal\",\r\n    \"age\": \"23\",\r\n    \"mobile\": \"7000061030\",\r\n    \"email\": \"ayush.agrawal@gmail.com\",\r\n    \"dateOfBirth\": \"2000-06-27\",\r\n    \"roles\": [],\r\n    \"bankName\": \"ICICI Bank\",\r\n    \"creditCardNumber\": \"1234-1111-2222-3333\",\r\n    \"expiryDate\": \"2030-12-12\",\r\n    \"deposit\": \"10000\",\r\n    \"accountType\": \"Current\",\r\n    \"cvv\":\"111\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8005/api/bank/deleteUserAndBankAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"api",
+								"bank",
+								"deleteUserAndBankAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Transaction History By Bank Account Number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8005/api/bank/getTransactionHistoryByBankAccountNumber?bankAccountNumber=00000000001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"api",
+								"bank",
+								"getTransactionHistoryByBankAccountNumber"
+							],
+							"query": [
+								{
+									"key": "bankAccountNumber",
+									"value": "00000000001"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Bank Account",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\": \"Ayush Agrawal\",\r\n    \"age\": \"29\",\r\n    \"mobile\": \"8770835055\",\r\n    \"email\": \"07ayush0707@gmail.com\",\r\n    \"dateOfBirth\": \"2000-06-27\",\r\n    \"roles\": [],\r\n    \"bankName\": \"HDFC Bank\",\r\n    \"creditCardNumber\": \"1234-5678-8888-1234\",\r\n    \"expiryDate\": \"2028-11-14\",\r\n    \"deposit\": \"10000\",\r\n    \"accountType\": \"Savings\",\r\n    \"cvv\":\"989\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8005/api/bank/saveAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8005",
+							"path": [
+								"api",
+								"bank",
+								"saveAccount"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Train Microservice",
+			"item": [
+				{
+					"name": "Add Train Info",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"trainName\": \"Rajdhani Express\",\r\n    \"trainType\": \"SF Express\",\r\n    \"totalDistance\": \"1234\",\r\n    \"scheduledDays\": [\r\n        \"Monday\",\r\n        \"Thursday\"\r\n    ],\r\n    \"coachDTO\": [\r\n        {\r\n            \"coachNumber\": \"S1\",\r\n            \"coachType\": \"SLEEPER\",\r\n            \"coachNormalFare\": \"100\",\r\n            \"coachTaktalFare\": \"150\",\r\n            \"coachPremiumTaktalFare\": \"250\",\r\n            \"seats\": [\r\n                {\r\n                    \"seatNumber\": \"1\",\r\n                    \"seatType\": \"LOWER BERTH\"\r\n                },\r\n                {\r\n                    \"seatNumber\": \"2\",\r\n                    \"seatType\": \"MIDDLE BERTH\"\r\n                },\r\n                {\r\n                    \"seatNumber\": \"3\",\r\n                    \"seatType\": \"UPPER BERTH\"\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"stationDTO\": [\r\n        {\r\n            \"stationName\": \"Harzrat Nizamuddin Railway Station\",\r\n            \"city\": \"Delhi\",\r\n            \"state\": \"Delhi\",\r\n            \"noOfPlatform\": \"5\",\r\n            \"isSource\": true,\r\n            \"timeOfArrival\": \"00:00:00\",\r\n            \"timeOfDeparture\": \"00:10:00\",\r\n            \"distanceBetweenDestination\":\"1234\"\r\n        },\r\n        {\r\n            \"stationName\": \"Agra Cantt\",\r\n            \"city\": \"Agra\",\r\n            \"state\": \"Uttar Pradesh\",\r\n            \"noOfPlatform\": \"7\",\r\n            \"timeOfArrival\": \"11:30:00\",\r\n            \"timeOfDeparture\": \"11:45:00\",\r\n            \"distanceBetweenDestination\":\"578\"\r\n        },\r\n        {\r\n            \"stationName\": \"Bhopal Junction\",\r\n            \"city\": \"Bhopal\",\r\n            \"state\": \"Madhya Pradesh\",\r\n            \"noOfPlatform\": \"8\",\r\n            \"isDestination\": true,\r\n            \"timeOfArrival\": \"21:00:00\",\r\n            \"timeOfDeparture\": \"21:00:00\",\r\n            \"distanceBetweenDestination\":\"0\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/api/train/addTrainInfo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"train",
+								"addTrainInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Train Details",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/api/train/getTrainDetails?trainNumber=10001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"train",
+								"getTrainDetails"
+							],
+							"query": [
+								{
+									"key": "trainNumber",
+									"value": "10001"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Trains",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8004/api/train/getAllTrainDetails",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"train",
+								"getAllTrainDetails"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Train Info",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"trainNumber\": \"10001\",\r\n    \"trainName\": \"Rajdhani SF Express\",\r\n    \"trainType\": \"Super Fast Express\",\r\n    \"totalDistance\": \"2222\",\r\n    \"scheduledDays\": [\r\n        \"Monday\",\r\n        \"Tuesday\",\r\n        \"Thursday\",\r\n        \"Wednesday\",\r\n        \"Friday\",\r\n        \"Saturday\",\r\n        \"Sunday\"\r\n    ],\r\n    \"sourceCity\": \"Kolkata\",\r\n    \"destinationCity\": \"Mumbai\",\r\n    \"coachDTO\": [\r\n        {\r\n            \"coachId\":\"1\",\r\n            \"coachNumber\": \"S2\",\r\n            \"coachType\": \"SLEEPER\",\r\n            \"coachNormalFare\": \"100\",\r\n            \"coachTaktalFare\": \"150\",\r\n            \"coachPremiumTaktalFare\": \"250\",\r\n            \"seats\": [\r\n                {   \r\n                    \"seatId\":\"1\",\r\n                    \"seatNumber\": \"47\",\r\n                    \"seatType\": \"LOWER BERTH\"\r\n                },\r\n                {\r\n                    \"seatId\":\"2\",\r\n                    \"seatNumber\": \"48\",\r\n                    \"seatType\": \"MIDDLE BERTH\"\r\n                },\r\n                {\r\n                    \"seatId\":\"3\",\r\n                    \"seatNumber\": \"49\",\r\n                    \"seatType\": \"UPPER BERTH\"\r\n                },\r\n                {\r\n                    \"seatId\":\"4\",\r\n                    \"seatNumber\": \"4\",\r\n                    \"seatType\": \"LOWER BERTH\"\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"stationDTO\": [\r\n        {\r\n            \"stationId\":\"1\",\r\n            \"stationName\": \"Kolkata Railway Station\",\r\n            \"city\": \"Kolkata\",\r\n            \"state\": \"West Bengal\",\r\n            \"noOfPlatform\": \"10\",\r\n            \"isSource\": true,\r\n            \"timeOfArrival\": \"00:00:00\",\r\n            \"timeOfDeparture\": \"00:10:00\",\r\n            \"distanceBetweenDestination\":\"1234\"\r\n        },\r\n        {\r\n            \"stationId\":\"2\",\r\n            \"stationName\": \"Bilaspur Junction\",\r\n            \"city\": \"Bilaspur\",\r\n            \"state\": \"Chhattisgarh\",\r\n            \"noOfPlatform\": \"9\",\r\n            \"timeOfArrival\": \"11:30:00\",\r\n            \"timeOfDeparture\": \"11:45:00\",\r\n            \"distanceBetweenDestination\":\"535\"\r\n        },\r\n        {\r\n            \"stationId\":\"3\",\r\n            \"stationName\": \"Thane Junction\",\r\n            \"city\": \"Mumbai\",\r\n            \"state\": \"Maharashtra\",\r\n            \"noOfPlatform\": \"7\",\r\n            \"isDestination\": true,\r\n            \"timeOfArrival\": \"21:00:00\",\r\n            \"timeOfDeparture\": \"21:00:00\",\r\n            \"distanceBetweenDestination\":\"0\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/api/train/updateTrainInfo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"train",
+								"updateTrainInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Train Record",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"trainNumber\": \"10001\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/api/train/deleteTrainInfo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"train",
+								"deleteTrainInfo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Train",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sourceCity\":\"Delhi\",\r\n    \"destinationCity\":\"Bhopal\",\r\n    \"dateOfJourney\":\"2023-12-11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/api/train/searchTrain",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"train",
+								"searchTrain"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Fare List By Train Number",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"trainSearchId\":\"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8004/api/train/getFareByTrainNumber?trainNumber=10001",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8004",
+							"path": [
+								"api",
+								"train",
+								"getFareByTrainNumber"
+							],
+							"query": [
+								{
+									"key": "trainNumber",
+									"value": "10001"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking Microservice",
+			"item": [
+				{
+					"name": "Create Booking",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"trainNumber\":\"10001\",\r\n    \"coachType\":\"SLEEPER\",\r\n    \"sourceCity\":\"Delhi\",\r\n    \"destinationCity\":\"Bhopal\",\r\n    \"dateOfJourney\":\"2023-12-11\",\r\n    \"bookingType\":\"Normal\",\r\n    \"passengerDTOList\":[\r\n        {\r\n            \"passengerName\":\"Ayush Agrawal\",\r\n            \"passengerAge\":\"23\",\r\n            \"gender\":\"Male\"\r\n        },\r\n        {\r\n            \"passengerName\":\"Aniket Narale\",\r\n            \"passengerAge\":\"23\",\r\n            \"gender\":\"Male\"\r\n        },\r\n        {\r\n            \"passengerName\":\"Mohnish Bhonde\",\r\n            \"passengerAge\":\"26\",\r\n            \"gender\":\"Female\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8003/api/booking/createBooking",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"api",
+								"booking",
+								"createBooking"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Save Booking",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookingId\":\"2\",\r\n    \"trainNumber\":\"10001\",\r\n    \"coachType\":\"SLEEPER\",\r\n    \"sourceCity\":\"Delhi\",\r\n    \"destinationCity\":\"Bhopal\",\r\n    \"dateOfJourney\":\"2023-12-11\",\r\n    \"bookingType\":\"Normal\",\r\n    \"passengerDTOList\":[\r\n        {\r\n            \"passengerName\":\"Ayush Agrawal\",\r\n            \"passengerAge\":\"23\",\r\n            \"gender\":\"Male\"\r\n        },\r\n        {\r\n            \"passengerName\":\"Aniket Narale\",\r\n            \"passengerAge\":\"23\",\r\n            \"gender\":\"Male\"\r\n        },\r\n        {\r\n            \"passengerName\":\"Mohnish Bhonde\",\r\n            \"passengerAge\":\"26\",\r\n            \"gender\":\"Female\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8003/api/booking/saveBooking?isPaymentDone=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"api",
+								"booking",
+								"saveBooking"
+							],
+							"query": [
+								{
+									"key": "isPaymentDone",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Seat Availability",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"trainNumber\":\"10001\",\r\n    \"coachType\":\"SLEEPER\",\r\n    \"sourceCity\":\"Delhi\",\r\n    \"destinationCity\":\"Bhopal\",\r\n    \"dateOfJourney\":\"2023-12-11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8003/api/booking/seatAvailability",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"api",
+								"booking",
+								"seatAvailability"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Booking",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"bookingId\":\"3\",\r\n    \"trainNumber\":\"10001\",\r\n    \"coachType\":\"SLEEPER\",\r\n    \"sourceCity\":\"Delhi\",\r\n    \"destinationCity\":\"Bhopal\",\r\n    \"dateOfJourney\":\"2023-12-11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8003/api/booking/cancelBooking?pnr=000000000000003",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8003",
+							"path": [
+								"api",
+								"booking",
+								"cancelBooking"
+							],
+							"query": [
+								{
+									"key": "pnr",
+									"value": "000000000000003"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

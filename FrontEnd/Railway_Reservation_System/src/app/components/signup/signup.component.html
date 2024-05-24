@@ -1,0 +1,97 @@
+<div class="container">
+<form (ngSubmit)="formSubmit()"  class="border">
+    <div class="row g-0">
+        <div class="col text-center p-2 mb-3 bg-light">
+            <span class="fs-3">Register</span>
+        </div>
+    <div class="row">
+        <div class="col">
+            <label for="name" class="form-label">Name</label>
+            <input 
+            [(ngModel)]="user.fullName"
+            [ngModelOptions]="{standalone: true}"
+            type="text" class="form-control" id="name">
+        </div>
+        <div class="col">
+            <label for="UserId" class="form-label">UserName</label>
+            <input 
+            [(ngModel)]="user.userId"
+            [ngModelOptions]="{standalone: true}"
+            type="text" class="form-control" id="userId">
+            <!-- <mat-hint>UserId must be unique!!</mat-hint> -->
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input  
+            [(ngModel)]="user.email"
+            [ngModelOptions]="{standalone: true}"
+            type="email" class="form-control" id="email">
+        </div>
+        <div class="col mb-3">
+            <label for="age" class="form-label">Age</label>
+            <input  
+            [(ngModel)]="user.age"
+            [ngModelOptions]="{standalone: true}"
+            type="text" class="form-control" id="age">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col mb-3">
+            <label for="phoneNumber" class="form-label">Mobile Number</label>
+            <input 
+            [(ngModel)]="user.phoneNumber"
+            [ngModelOptions]="{standalone: true}"
+            type="number" class="form-control" id="phoneNumber">
+            <div class="form-text"></div>
+        </div>
+        <div class="col ps-3">
+            <div class="m-1">Gender</div>
+            <div class="form-check form-check-inline">
+                <input 
+                [(ngModel)]="user.gender"
+                [ngModelOptions]="{standalone: true}"
+                type="radio" class="form-check-input" value="Male" id="male">
+                <label for="male" class="form-check-label">Male</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input 
+                [(ngModel)]="user.gender"
+                [ngModelOptions]="{standalone: true}"
+                type="radio" class="form-check-input" value="Female" id="female">
+                <label for="female" class="form-check-label">Female</label>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+            <label for="pwd" class="form-label">Password</label>
+            <input 
+            [(ngModel)]="user.password"
+            [ngModelOptions]="{standalone: true}"
+            type="password" class="form-control" id="pwd">
+        </div>
+    </div>
+    <!-- <div class="row">
+        <div class="col-6 offset-3">
+            <div class="d-grid">
+                <button mat-raised-button color="primary">submit</button>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="row text-center">
+        <div class="col-6 offset-3">
+            <button type="submit" mat-raised-button color="primary">Submit</button>
+            <button mat-raised-button color="accent" type="reset" style="margin-left:4px;">Reset</button>
+        </div>
+    </div>
+    
+
+
+</div>
+</form>
+</div>

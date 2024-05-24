@@ -1,0 +1,22 @@
+fieldset {
+    border: thin solid #ccc; 
+    border-radius: 4px;
+    padding: 20px;
+    background: #fbfbfb;
+}
+.form-group-new{
+    width: 70rem !important;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+th {
+    background-color: #f2f2f2;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }

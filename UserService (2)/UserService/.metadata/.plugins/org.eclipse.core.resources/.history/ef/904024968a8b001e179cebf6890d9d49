@@ -1,0 +1,36 @@
+package com.casestudy.services;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import com.casestudy.model.UserModel;
+
+public class UserService {
+//	to save the user
+	/*public UserModel addUser(UserModel userModel);
+	
+//	to get all the user
+	public List<UserModel> getAllUser();
+	
+//	get user By id;
+//	public UserModel getUser(String UserId);
+	public UserModel getUser(String UserId);
+	
+//	delete user
+	public UserModel deleteUser(String UserId);
+	
+//	update the user
+	public UserModel updateUser(String UserId);
+	
+	
+	
+	*/
+	public List<UserModel> store=new ArrayList<>();
+	
+	public UserService() {
+		store.add(new UserModel(UUID.randomUUID().toString(),"AxelKai", "Pass@123","Male","axelkai@gmail.com","876543219","SBI","25376273517253513571273"));
+	}
+	
+
+}

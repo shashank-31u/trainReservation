@@ -1,0 +1,145 @@
+<button mat-icon-button color="accent" routerLink="/ManageTrain"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/></svg>
+</button>
+<div class="bootstrap-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12" style="margin-top: 20px;">
+                <h2 class = "mt-3 mb-3"><b style="border-color: cyan; color:rgb(158, 51, 158);">Add Trains Here:</b></h2>
+                <form (ngSubmit)="addTrain()">
+                    <fieldset>
+                        <div class="form-group">
+                            <label for="trainNumber" class="form-label">Train Number</label>
+                            <input 
+                            [(ngModel)]="Train.trainNumber"
+                            [ngModelOptions]="{standalone: true}"
+                            type="number" class="form-control" id="trainNumber" required
+                            placeholder="Enter Train No">
+                        </div>
+                        <div class="form-group">
+                            <label for="trainName" class="form-label">Train Name</label>
+                            <input 
+                            [(ngModel)]="Train.trainName"
+                            [ngModelOptions]="{standalone: true}"
+                            type="text" class="form-control" id="trainName" required
+                            placeholder="Enter Train Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="trainType" class="form-label">Train Type</label>
+                            <input 
+                            [(ngModel)]="Train.trainType"
+                            [ngModelOptions]="{standalone: true}"
+                            type="text" class="form-control" id="trainType" required
+                            placeholder="Enter Train Type">
+                        </div>
+                        <div class="form-group">
+                            <label for="totalDistance" class="form-label">Total Distance</label>
+                            <input 
+                            [(ngModel)]="Train.totalDistance"
+                            [ngModelOptions]="{standalone: true}"
+                            type="number" class="form-control" id="totalDistance" required
+                            placeholder="Enter Total Distance">
+                        </div>
+                        <div class="form-group">
+                            <label for="sourceCity" class="form-label">Source</label>
+                            <input 
+                            [(ngModel)]="Train.sourceCity"
+                            [ngModelOptions]="{standalone: true}"
+                            type="text" class="form-control" id="sourceCity" required
+                            placeholder="Enter Source">
+                        </div>
+                        <div class="form-group">
+                            <label for="destinationCity" class="form-label">Destination</label>
+                            <input 
+                            [(ngModel)]="Train.destinationCity"
+                            [ngModelOptions]="{standalone: true}"
+                            type="text" class="form-control" id="destinationCity" required
+                            placeholder="Enter destination">
+                            <!-- {{Train.destination}} -->
+                        </div>
+                        <div class="form-group" style="max-height: 100px; overflow-y: auto;">
+                            <label for="scheduledDay" class="form-label">Schedule Days</label>
+                            <mat-selection-list [(ngModel)]="Train.scheduledDays"  [ngModelOptions]="{standalone: true}">
+                                <mat-list-option *ngFor="let days of daysOfWeek" [value]="days">
+                                    {{ days }}
+                                </mat-list-option>
+                            </mat-selection-list>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="coachNumber">Coach Number</label>
+                            <input [(ngModel)]="Train.coachDTO[0].coachNumber" [ngModelOptions]="{standalone: true}"type="text" class="form-control" id="coachNumber" requiredplaceholder="Enter Coach Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="coachType">Coach Type</label>
+                            <input [(ngModel)]="Train.coachDTO[0].coachType" [ngModelOptions]="{standalone: true}"type="text" class="form-control" id="coachType" requiredplaceholder="Enter Coach Type">
+                        </div>
+                        <div class="form-group">
+                            <label for="coachNormalFare">Coach Normal Fare</label>
+                            <input [(ngModel)]="Train.coachDTO[0].coachNormalFare" [ngModelOptions]="{standalone: true}"type="number" class="form-control" id="coachNormalFare" requiredplaceholder="Enter Coach NormalFare">
+                        </div>
+                        <div class="form-group">
+                            <label for="coachTaktalFare">Coach Taktal Fare</label>
+                            <input [(ngModel)]="Train.coachDTO[0].coachTaktalFare" [ngModelOptions]="{standalone: true}"type="number" class="form-control" id="coachTaktalFare" requiredplaceholder="Enter Coach Tatkal Fare">
+                        </div>
+                        <div class="form-group">
+                            <label for="coachPremiumTaktalFare">Coach Premium Taktal Fare</label>
+                            <input [(ngModel)]="Train.coachDTO[0].coachPremiumTaktalFare" [ngModelOptions]="{standalone: true}"type="number" class="form-control" id="coachPremiumTaktalFare" requiredplaceholder="Enter Coach Premium Taktal Fare">
+                        </div>
+                        <div class="form-group">
+                            <label for="seatNumber">Seat Number</label>
+                            <input [(ngModel)]="Train.coachDTO[0].seats[0].seatNumber" type="text" class="form-control" id="seatNumber" required placeholder="Enter Seat Number">
+                            
+                            <div *ngIf="!Train.coachDTO[0].seats[0].seatNumber" class="text-danger">Seat Number is required</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="seatType">Seat Type</label>
+                            <input [(ngModel)]="Train.coachDTO[0].seats[0].seatType" type="text" class="form-control" id="seatType" required placeholder="Enter Seat Type">
+                            
+                            <div *ngIf="!Train.coachDTO[0].seats[0].seatType" class="text-danger">Seat Type is required</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="stationName" class="form-label">Station Name</label>
+                            <input [(ngModel)]="Train.stationDTO[0].stationName" [ngModelOptions]="{ standalone: true }" type="text" class="form-control" id="stationName" required placeholder="Enter Station Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="city" class="form-label">City</label>
+                            <input [(ngModel)]="Train.stationDTO[0].city" [ngModelOptions]="{ standalone: true }" type="text" class="form-control" id="city" required placeholder="Enter City">
+                        </div>
+                        <div class="form-group">
+                            <label for="state" class="form-label">State</label>
+                            <input [(ngModel)]="Train.stationDTO[0].state" [ngModelOptions]="{ standalone: true }" type="text" class="form-control" id="state" required placeholder="Enter State">
+                        </div>
+                        <div class="form-group">
+                            <label for="noOfPlatform" class="form-label">Number of Platforms</label>
+                            <input [(ngModel)]="Train.stationDTO[0].noOfPlatform" [ngModelOptions]="{ standalone: true }" type="number" class="form-control" id="noOfPlatform" required placeholder="Enter Number of Platforms">
+                        </div>
+                        <div class="form-group">
+                            <label for="isSource" class="form-label">Is Source</label>
+                            <input [(ngModel)]="Train.stationDTO[0].isSource" [ngModelOptions]="{ standalone: true }" type="text" class="form-control" id="isSource" required placeholder="Enter Is Source">
+                        </div>
+                        <div class="form-group">
+                            <label for="timeOfArrival" class="form-label">Time of Arrival</label>
+                            <input [(ngModel)]="Train.stationDTO[0].timeOfArrival" [ngModelOptions]="{ standalone: true }" type="text" class="form-control" id="timeOfArrival" required placeholder="Enter Time of Arrival">
+                        </div>
+                        <div class="form-group">
+                            <label for="timeOfDeparture" class="form-label">Time of Departure</label>
+                            <input [(ngModel)]="Train.stationDTO[0].timeOfDeparture" [ngModelOptions]="{ standalone: true }" type="text" class="form-control" id="timeOfDeparture" required placeholder="Enter Time of Departure">
+                        </div>
+                        <div class="form-group">
+                            <label for="distanceBetweenDestination" class="form-label">Distance Between Destination</label>
+                            <input [(ngModel)]="Train.stationDTO[0].distanceBetweenDestination" [ngModelOptions]="{ standalone: true }" type="text" class="form-control" id="distanceBetweenDestination" required placeholder="Enter Distance Between Destination">
+                        </div>
+
+
+                        <div class="container text-center">
+                            <button  type="submit" mat-raised-button color="primary" (click)="addTrain()" >Update Train</button>
+                        </div>
+
+                    </fieldset>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

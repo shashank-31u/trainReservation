@@ -1,0 +1,44 @@
+<button mat-icon-button color="accent" routerLink="/AdminDashboard"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/></svg>
+</button>
+<div class="example-button-row">
+  <button style="margin-left: 90%;" mat-raised-button color="primary" routerLink="/AddTrain">Add Train</button>
+</div>
+
+<h2 style="text-align: center; font:bold ; background-color: rgb(41, 99, 146); color: coral; margin-top: 20px;">List of Trains Available</h2>
+  <table class="table table-striped" style="background-color: rgb(127, 173, 150);">
+      <thead style="color: darkolivegreen; background-color: lightblue;">
+          <tr>
+              <th>Train Name</th>
+              <th>Train No</th>
+              <th>Train Type</th>
+              <th>Distance</th>
+              <th>source</th> 
+              <th>Destination</th>
+              <th>Schedule Days</th> 
+              <th>Actions</th>   
+          </tr>
+
+      </thead>
+      <tbody>
+        <tr *ngFor="let train of trains">
+      <td>{{train.trainName}}</td>
+      <td>{{train.trainNumber}}</td>
+      <td>{{train.trainType}}</td>
+      <td>{{train.totalDistance}}</td>
+      <td>{{train.source}}</td>
+      <td>{{train.destination}}</td>
+      <td>
+        <ul>
+            <li *ngFor="let days of train.scheduledDay">
+                {{ days}}
+            </li>
+          </ul>
+
+    </td>
+      <td>
+        <button routerLink="/UpdateTrain" class="btn btn-info">Update</button>
+        <button (click)="deleteTrain(train.trainNumber)" class="btn btn-danger">Delete</button></td>
+      </tr>
+    </tbody>
+  </table>

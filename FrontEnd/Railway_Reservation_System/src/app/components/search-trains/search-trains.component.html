@@ -1,0 +1,139 @@
+<div class="bootstrap-wrapper">
+    <marquee width="100%" direction="left" height="25px" scrollamount="10" style="color: rgb(7, 7, 7); background-color: rgb(247, 204, 95); margin-bottom: auto; padding-top: 4px; font-size: 17px; word-spacing: 8px;">
+        WELCOME TO PAKISTAN RAILWAYS TRANSPORTATION  -  WE ARE AVAILABLE FOR 24*7  -  HAVE A HAPPY & SAFE JOURNEY
+    </marquee>
+
+    <div class="container">
+
+        <div class="row">
+            <span style="font-size: 20px; font-weight: '500';" >Search Trains</span><b></b>
+            <button mat-icon-button color="accent" routerLink="/"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/></svg>
+            </button>
+        </div>
+        <div class=" row">    
+            <div class="col-lg-4 col-sm-12 mt-4">
+                <label><b>Source :</b>    
+                </label><br>
+                <input class="form-control input-lg"  
+                [(ngModel)]="search.sourceCity"
+                [ngModelOptions]="{standalone: true}"
+                name="trainFrom"  placeholder="Enter Source" type="text" />
+            </div>
+            <div class="col-lg-4 col-sm-12 mt-4"><label><b>Destination :</b>
+                </label><br> <input class="form-control input-lg" 
+                [(ngModel)]="search.destinationCity"
+                [ngModelOptions]="{standalone: true}"
+                name="trainTo"  placeholder="Enter Source" type="text"/>
+            </div>
+            <div class="col-lg-2 col-sm-12 mt-4">
+                <label><b>Date :</b></label><br>
+                <input matInput [matDatepicker]="picker" 
+                [(ngModel)]="search.dateOfJourney"
+                [ngModelOptions]="{standalone: true}"
+                placeholder="Choose a date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </div>
+
+        
+            
+            <div class="col-lg-2 col-sm-12 mt-5">
+                <button mat-raised-button color="primary" (click)="searchTrains()"><b>Search</b></button>
+            </div>
+            
+        </div>
+        <div><h2 class="text-center" style="color:rgb(17, 91, 239);">TRAINS SCHEDULE</h2></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>TrainId</th>
+                    <th>Train No</th>
+                    <th>Train Name</th>
+                    <th>Train From</th>
+                    <th>Train To</th>
+                    <th>Distance</th>
+                    <th>Time of Arrival</th>
+                    <th>Time of Departure</th>  
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let train of trains">
+                    <td>{{train.trainId}}</td>
+                    <td>{{train.trainNumber}}</td>
+                    <td>{{train.trainName}}</td>
+                    <td>{{train.sourceCity}}</td>
+                    <td>{{train.destinationCity}}</td>
+                    <td>{{train.distanceBetweenSourceDestination}}</td>
+                    <td>{{train.sourceTimeOfArrival}}</td>
+                    <td>{{train.destinationTimeOfDeparture}}</td>
+
+                    
+                    <!-- <td>
+                        <ul>
+                            <li *ngFor="let station of train.stations">
+                               {{ station.sourceTimeOfArrival }} - {{ station.destinationTimeOfArrival }}
+                            </li>
+                          </ul>
+                
+                    </td>
+                    <td *ngIf="!train.stations || train.stations.length === 0">No stations available</td> -->
+                </tr>
+            </tbody>
+
+
+            
+        </table>
+        <!-- <table mat-table  class="mat-elevation-z8">
+
+          
+          
+          
+            <ng-container matColumnDef="TrainId">
+              <th mat-header-cell *matHeaderCellDef> TrainId </th>
+              <td mat-cell *matCellDef="let element"> {{element.TrainId}} </td>
+            </ng-container>
+          
+            
+             <ng-container matColumnDef="TrainNo">
+              <th mat-header-cell *matHeaderCellDef> TrainNo </th>
+              <td mat-cell *matCellDef="let element"> {{element.TrainNo}} </td>
+            </ng-container>
+          
+            
+            <ng-container matColumnDef="TrainName">
+              <th mat-header-cell *matHeaderCellDef> TrainName </th>
+              <td mat-cell *matCellDef="let element"> {{element.TrainName}} </td>
+            </ng-container>
+          
+           
+            <ng-container matColumnDef="TrainFrom">
+              <th mat-header-cell *matHeaderCellDef> TrainFrom </th>
+              <td mat-cell *matCellDef="let element"> {{element.TrainFrom}} </td>
+            </ng-container>
+            <ng-container matColumnDef="TrainTo">
+                <th mat-header-cell *matHeaderCellDef> TrainTo </th>
+                <td mat-cell *matCellDef="let element"> {{element.TrainTo}} </td>
+            </ng-container>
+            <ng-container matColumnDef="Distance">
+                <th mat-header-cell *matHeaderCellDef> Distance </th>
+                <td mat-cell *matCellDef="let element"> {{element.Distance}} </td>
+            </ng-container>
+            <ng-container matColumnDef="SourceArrivalTime">
+                <th mat-header-cell *matHeaderCellDef> Source Arrival Time </th>
+                <td mat-cell *matCellDef="let element"> {{element.SourceArrivalTime}} </td>
+            </ng-container>
+            <ng-container matColumnDef="DestinationArrivalTime">
+                <th mat-header-cell *matHeaderCellDef>Destination Arrival Time </th>
+                <td mat-cell *matCellDef="let element"> {{element.DestinationArrivalTime}} </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+          <!-- </table> -->
+        
+    </div>
+</div>
+
+

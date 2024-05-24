@@ -1,0 +1,173 @@
+<div *ngIf="!showBookingInfo" >
+    <button mat-icon-button color="accent" routerLink="/Dashboard"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/></svg>
+      </button>
+    <div class="bootstrap-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-sm-12" style="margin-top: 10px;">
+                    <h2 class = "mt-3 mb-3"><b style="border-color: cyan; color:rgb(158, 51, 158);">Add booking Details Here:</b></h2>
+                    <form [formGroup]="dateForm">
+                        <fieldset>
+                            <div class="form-group">
+                                <mat-form-field appearance="outline"  floatLabel="always">
+                                    <mat-label>Train Number</mat-label>
+                                    <input  class="form-control" matInput type="number" formControlName="trainNumber">
+                                </mat-form-field>
+                                
+                            </div>
+                            <div class="form-group">
+                                <mat-form-field appearance="outline"  floatLabel="always">
+                                    <mat-label>Coach Type</mat-label>
+                                    <input class="form-control" matInput type="texts" formControlName="coachType">
+                                </mat-form-field>
+                                
+                            </div>
+                            <div class="form-group-new">
+                                <mat-form-field appearance="outline"  floatLabel="always">
+                                    <mat-label>Source City</mat-label>
+                                    <input matInput type="texts" formControlName="sourceCity">
+                                </mat-form-field>
+                            </div>
+                            
+                            <div class="form-group-new">
+                                <mat-form-field appearance="outline"  floatLabel="always">
+                                    <mat-label>Destination City</mat-label>
+                                    <input matInput type="texts" formControlName="destinationCity">
+                                </mat-form-field>
+                            </div>
+                            
+                                
+                            <div class="mt-1 mb-1">
+                                <mat-form-field appearance="outline" class="w-60" floatLabel="always">
+                                    <mat-label>Date</mat-label>
+                                    <input matInput [matDatepicker]="picker" formControlName="dateOfJourney" readonly>
+                                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                                    <mat-datepicker #picker></mat-datepicker>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group-new">
+                                <mat-form-field appearance="outline"  floatLabel="always">
+                                    <mat-label>Booking Type</mat-label>
+                                    <input matInput type="texts" formControlName="bookingType">
+                                </mat-form-field>
+                            </div>
+                            
+                            <div class="form-group-new">
+                                <mat-form-field appearance="outline"  floatLabel="always">
+                                    <mat-label>Passenger Name</mat-label>
+                                    <input matInput type="texts" formControlName="passengerName">
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group-new">
+                                <mat-form-field appearance="outline"  floatLabel="always">
+                                    <mat-label>Passenger Age</mat-label>
+                                    <input matInput type="texts" formControlName="passengerAge" class="form-control">
+                                </mat-form-field>
+    
+                                <!-- <label for="passengerAge">Passenger Age</label>
+                                <input [(ngModel)]="Details.passengerDTOList[i].passengerAge" [ngModelOptions]="{standalone: true}"type="text" class="form-control" id="passengerAge" requiredplaceholder="Enter Passneger Name"> -->
+                            </div>
+                            <div class="form-group-new">
+                                <mat-form-field appearance="outline"  floatLabel="always">
+                                    <mat-label>Gender</mat-label>
+                                    <input matInput type="texts" formControlName="gender">
+                                </mat-form-field>
+                                <!-- <label for="gender">Gender</label>
+                                <input [(ngModel)]="Details.passengerDTOList[i].gender" [ngModelOptions]="{standalone: true}"type="text" class="form-control" id="gender" requiredplaceholder="Enter Gender"> -->
+                            </div>
+                        </fieldset>  
+                    </form>
+                    <div class="container text-center mt-2">
+                        <button style="margin-right: 5px;" mat-raised-button color="primary" (click)="addBooking()">Add Booking</button>
+                        <button (click)="saveBooking()" mat-raised-button color="accent" >Book Ticket</button>
+                    </div>
+                
+                    <div><h2 class="text-center" style="color:rgb(17, 91, 239);">Booking Response</h2></div>
+                    
+            <table>
+    
+                <thead>
+                    <tr>
+                        <th>Booking Id</th>
+                        <th>booking Status</th>
+                        <th>Message</th>
+                        <th>Fare</th>
+                        <th>bookingType</th>
+                        
+    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngIf="responseData">
+                        <td>{{ responseData.bookingId }}</td>
+                        <td>{{ responseData.bookingStatus }}</td>
+                        <td>{{ responseData.message }}</td>
+                        <td>{{ responseData.fare }}</td>
+                        <td>{{ responseData.bookingType }}</td>
+                      </tr>
+                </tbody>
+            </table>
+            <div class="text-center mt-2">
+                <button routerLink="/Razorpay" mat-raised-button color="warn">Pay Now</button>
+            </div>   
+                  
+                </div>
+            </div>
+    </div>
+    
+    
+</div>
+</div>
+
+<div *ngIf="showBookingInfo">
+    
+    <hr class="mt-4 mb-2">
+    <div>
+        <button mat-raised-button color="primary" (click)="backTobooking()" class="ml-2">Back</button>
+    </div>
+    <div class="bootstrap-wrapper">
+        
+        <table>
+            <caption></caption>
+            <thead>
+              <tr>
+                <th *ngFor="let col of tableHead">{{col}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr  *ngFor="let item of sortedDTO">
+                <td>
+                  {{item.pnr}}
+                </td>
+                <td>
+                  {{item.bookingId}}
+                </td>
+                <td>
+                  {{item.bookingStatus}}
+                </td>
+                <td>
+                  {{item.sourceCity}}
+                </td>
+                <td>
+                    {{item.destinationCity}}
+                </td>
+                <td>
+                    {{item.trainName}}
+                </td>
+                <td>
+                    {{item.trainNumber}}
+                </td>
+                <td>
+                    {{item.dateOfJourney}}
+                </td>
+                <td>
+                    <button mat-raised-button color="accent" (click)="CancelBooking(item)">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+    
+</div>
+<!-- <app-booking *ngIf="showBookingInfo" [item] = "ticketData" ></app-booking>  -->

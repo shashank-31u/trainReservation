@@ -1,0 +1,207 @@
+{
+  "trainNumber": "",
+  "trainName": "Rajdhani SF Express",
+  "trainType": "Super Fast Express",
+  "totalDistance": "2222",
+  "scheduledDays": ["Monday", "Thursday", "Wednesday", "Sunday"],
+  "sourceCity": "Kolkata",
+  "destinationCity": "Mumbai",
+  "coachDTO": [
+    {
+      "coachId": "1",
+      "coachNumber": "S2",
+      "coachType": "SLEEPER",
+      "coachNormalFare": "100",
+      "coachTaktalFare": "150",
+      "coachPremiumTaktalFare": "250",
+      "seats": [
+        {
+          "seatNumber": "1",
+          "seatType": "LOWER BERTH"
+        },
+        {
+          "seatNumber": "2",
+          "seatType": "MIDDLE BERTH"
+        },
+        {
+          "seatNumber": "3",
+          "seatType": "UPPER BERTH"
+        },
+        {
+          "seatNumber": "4",
+          "seatType": "LOWER BERTH"
+        },
+        {
+          "seatNumber": "5",
+          "seatType": "MIDDLE BERTH"
+        },
+        {
+          "seatNumber": "6",
+          "seatType": "UPPER BERTH"
+        },
+        {
+          "seatNumber": "7",
+          "seatType": "SIDE LOWER BERTH"
+        },
+        {
+          "seatNumber": "8",
+          "seatType": "SIDE UPPER BERTH"
+        },
+        {
+          "seatNumber": "9",
+          "seatType": "LOWER BERTH"
+        },
+        {
+          "seatNumber": "10",
+          "seatType": "MIDDLE BERTH"
+        }
+      ]
+    },
+    {
+      "coachNumber": "B2",
+      "coachType": "AC THREE TIER",
+      "coachNormalFare": "200",
+      "coachTaktalFare": "350",
+      "coachPremiumTaktalFare": "550",
+      "seats": [
+        {
+          "seatNumber": "1",
+          "seatType": "LOWER BERTH"
+        },
+        {
+          "seatNumber": "2",
+          "seatType": "MIDDLE BERTH"
+        },
+        {
+          "seatNumber": "3",
+          "seatType": "UPPER BERTH"
+        },
+        {
+          "seatNumber": "4",
+          "seatType": "LOWER BERTH"
+        },
+        {
+          "seatNumber": "5",
+          "seatType": "MIDDLE BERTH"
+        },
+        {
+          "seatNumber": "6",
+          "seatType": "UPPER BERTH"
+        },
+        {
+          "seatNumber": "7",
+          "seatType": "SIDE LOWER BERTH"
+        },
+        {
+          "seatNumber": "8",
+          "seatType": "SIDE UPPER BERTH"
+        },
+        {
+          "seatNumber": "9",
+          "seatType": "LOWER BERTH"
+        },
+        {
+          "seatNumber": "10",
+          "seatType": "MIDDLE BERTH"
+        }
+      ]
+    },
+    {
+      "coachNumber": "A2",
+      "coachType": "AC TWO TIER",
+      "coachNormalFare": "350",
+      "coachTaktalFare": "550",
+      "coachPremiumTaktalFare": "650",
+      "seats": [
+        {
+          "seatNumber": "1",
+          "seatType": "LOWER BERTH"
+        },
+        {
+          "seatNumber": "2",
+          "seatType": "MIDDLE BERTH"
+        },
+        {
+          "seatNumber": "3",
+          "seatType": "UPPER BERTH"
+        },
+        {
+          "seatNumber": "4",
+          "seatType": "LOWER BERTH"
+        },
+        {
+          "seatNumber": "5",
+          "seatType": "MIDDLE BERTH"
+        },
+        {
+          "seatNumber": "6",
+          "seatType": "UPPER BERTH"
+        },
+        {
+          "seatNumber": "7",
+          "seatType": "SIDE LOWER BERTH"
+        },
+        {
+          "seatNumber": "8",
+          "seatType": "SIDE UPPER BERTH"
+        },
+        {
+          "seatNumber": "9",
+          "seatType": "LOWER BERTH"
+        },
+        {
+          "seatNumber": "10",
+          "seatType": "MIDDLE BERTH"
+        }
+      ]
+    },
+    {
+      "coachNumber": "HA2",
+      "coachType": "AC FIRST TIER",
+      "coachNormalFare": "500",
+      "coachTaktalFare": "700",
+      "coachPremiumTaktalFare": "800",
+      "seats": [
+        {
+          "seatNumber": "1",
+          "seatType": "LOWER BERTH"
+        },
+        {
+          "seatNumber": "2",
+          "seatType": "UPPER BERTH"
+        }
+      ]
+    }
+  ],
+  "stationDTO": [
+    {
+      "stationId": "1",
+      "stationName": "Kolkata Railway Station",
+      "city": "Kolkata",
+      "state": "West Bengal",
+      "noOfPlatform": "10",
+      "isSource": true,
+      "timeOfArrival": "00:00:00",
+      "timeOfDeparture": "00:10:00"
+    },
+    {
+      "stationId": "2",
+      "stationName": "Bilaspur Junction",
+      "city": "Bilaspur",
+      "state": "Chhattisgarh",
+      "noOfPlatform": "9",
+      "timeOfArrival": "11:30:00",
+      "timeOfDeparture": "11:45:00"
+    },
+    {
+      "stationId": "3",
+      "stationName": "Thane Junction",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "noOfPlatform": "7",
+      "isDestination": true,
+      "timeOfArrival": "21:00:00",
+      "timeOfDeparture": ""
+    }
+  ]
+}
